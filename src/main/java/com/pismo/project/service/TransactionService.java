@@ -5,7 +5,6 @@ import com.pismo.project.config.exception.NotFoundException;
 import com.pismo.project.config.exception.TransactionException;
 import com.pismo.project.domain.Transaction;
 import com.pismo.project.domain.dto.TransactionDto;
-import com.pismo.project.repository.AccountRepository;
 import com.pismo.project.repository.TransactionRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
