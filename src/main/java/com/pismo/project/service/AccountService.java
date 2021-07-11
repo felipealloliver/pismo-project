@@ -19,11 +19,11 @@ public class AccountService {
     }
 
     public Account createAccount(AccountDto accountDto) {
-        try {
-            return accountRepository.save(accountDto.toAccount());
-        } catch (Exception e) {
-            throw new CannotSaveException("Não foi possível salvar a nova conta, contacte o suporte");
+        if (accountDto.getDocumentNumber() == null || accountDto.getDocumentNumber().trim().equals("")) {
+            throw new CannotSaveException("document_number possui valor inválido");
         }
+
+        return accountRepository.save(accountDto.toAccount());
     }
 
     public Account getById(Long accountId) {

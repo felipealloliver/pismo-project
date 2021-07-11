@@ -18,7 +18,10 @@ dependencies {
     runtimeOnly 'org.postgresql:postgresql'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     implementation 'org.projectlombok:lombok:1.18.20'
+    annotationProcessor 'org.projectlombok:lombok:1.18.20'
     implementation 'org.hibernate.validator:hibernate-validator:7.0.1.Final'
+    testImplementation 'org.testcontainers:junit-jupiter:1.15.3'
+    testImplementation 'org.testcontainers:postgresql:1.15.3'
 }
 
 test {

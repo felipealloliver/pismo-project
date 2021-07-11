@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.ServletRequest;
+import javax.validation.Valid;
 import java.net.URI;
 
 @Controller
@@ -25,14 +26,14 @@ public class AccountController {
     }
 
     @PostMapping
-    public ResponseEntity<?> createAccount(@RequestBody AccountDto accountDto, ServletRequest request) {
+    public ResponseEntity<?> createAccount(@Valid @RequestBody AccountDto accountDto, ServletRequest request) {
         try {
             return ResponseEntity.created(URI.create(request.getServletContext().getContextPath()
                             .concat(accountService.createAccount(accountDto).getAccountId().toString())))
                     .build();
         }
         catch (CannotSaveException e) {
-            return ResponseEntity.internalServerError().body(ExceptionDto.of(e.getMessage()));
+            return ResponseEntity.badRequest().body(ExceptionDto.of(e.getMessage()));
         }
     }
 

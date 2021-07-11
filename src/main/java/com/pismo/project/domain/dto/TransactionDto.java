@@ -6,6 +6,7 @@ import com.pismo.project.domain.OperationType;
 import com.pismo.project.domain.Transaction;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.validator.constraints.Range;
 
@@ -15,6 +16,7 @@ import java.time.LocalDateTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
 @AllArgsConstructor
 public class TransactionDto {
     @JsonProperty("account_id")
